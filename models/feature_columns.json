@@ -1,0 +1,15 @@
+[
+  "RH",
+  "Temperature",
+  "Mod Temp",
+  "Particles",
+  "Nozzle temp",
+  "(Tnoz-Tmod)",
+  "collection_medium",
+  "log_particles",
+  "particles_temp_interaction",
+  "avl_particles",
+  "avl_temp_diff",
+  "Particles_squared",
+  "Mod_x_Temp_x_Nozzle_x_temp"
+]
