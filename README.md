@@ -1,6 +1,6 @@
 # Virus Collection Volume Optimizer
 
-This repository contains a self-contained Streamlit application for exploring temperature settings that optimize predicted virus collection end volume under fixed environmental conditions.
+This directory contains a self-contained Streamlit application for exploring temperature settings that optimize predicted virus collection end volume under fixed environmental conditions.
 
 The app is designed for fast parameter tuning. As inputs change, the ranked results, charts, and downloadable outputs update automatically. The search always enforces `Nozzle temp >= Mod Temp`.
 
@@ -31,25 +31,44 @@ The application allows a user to:
 - Python 3.10 or later is recommended
 - `pip` for dependency installation
 
-Python dependencies are listed in `requirements.txt`.
+Python dependencies are listed in this directory's `requirements.txt`.
 
 ## Installation
 
-Clone the repository and install dependencies from the repository root:
+If you are working from the parent project directory (`v2`), install the app dependencies with:
 
 ```bash
-pip install -r requirements.txt
+python -m pip install -r streamlit_app/requirements.txt
+```
+
+If `streamlit_app` is your current directory or deployment repository root, install with:
+
+```bash
+python -m pip install -r requirements.txt
 ```
 
 ## Running the App
 
-Start the Streamlit server from the repository root:
+From the parent project directory (`v2`), start the Streamlit server with:
 
 ```bash
-streamlit run app.py
+python -m streamlit run streamlit_app/app.py
+```
+
+From inside `streamlit_app`, start it with:
+
+```bash
+python -m streamlit run app.py
 ```
 
 Streamlit will print a local URL in the terminal, typically `http://localhost:8501`.
+
+## Deployment
+
+Deploy the app with this same requirements file.
+
+- If deploying the parent project repository, set the requirements file to `streamlit_app/requirements.txt` and the Streamlit entrypoint to `streamlit_app/app.py`.
+- If deploying `streamlit_app` as its own repository or app root, set the requirements file to `requirements.txt` and the entrypoint to `app.py`.
 
 ## Using the App
 
@@ -63,11 +82,21 @@ Streamlit will print a local URL in the terminal, typically `http://localhost:85
 
 ## Testing
 
-Run the included checks from the repository root:
+From inside `streamlit_app`, run the included checks with:
 
 ```bash
 python -m unittest tests.test_app_logic -v
 python -m unittest tests.test_standalone_runtime -v
+python -m unittest tests.test_sampler_optimizer -v
+```
+
+From the parent project directory (`v2`), either change into the app directory first or run:
+
+```bash
+cd streamlit_app
+python -m unittest tests.test_app_logic -v
+python -m unittest tests.test_standalone_runtime -v
+python -m unittest tests.test_sampler_optimizer -v
 ```
 
 These tests cover:

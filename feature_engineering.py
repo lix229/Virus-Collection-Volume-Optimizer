@@ -39,6 +39,7 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
     )
 
     engineered["log_particles"] = np.log1p(engineered["Particles"])
+    engineered["Particles_squared"] = engineered["Particles"] ** 2
     engineered["particles_temp_interaction"] = (
         engineered["Particles"] * engineered["(Tnoz-Tmod)"]
     )

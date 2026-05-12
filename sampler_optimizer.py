@@ -60,7 +60,11 @@ def build_feature_frame(
     normalized = normalize_physical_units(base_frame)
     normalized["(Tnoz-Tmod)"] = normalized["Nozzle temp"] - normalized["Mod Temp"]
     engineered = engineer_features(normalized)
-    return engineered.reindex(columns=feature_columns, fill_value=0.0)
+    missing_columns = [column for column in feature_columns if column not in engineered.columns]
+    if missing_columns:
+        missing = ", ".join(missing_columns)
+        raise ValueError(f"Missing engineered feature columns: {missing}")
+    return engineered.reindex(columns=feature_columns)
 
 
 def predict_end_volume_ml(

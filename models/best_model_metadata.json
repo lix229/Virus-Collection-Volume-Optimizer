@@ -1,0 +1,143 @@
+{
+  "model_name": "svr_rbf",
+  "run_dir": "runs/best_performance_run",
+  "metrics": {
+    "rmse": 0.2844509275588687,
+    "mae": 0.20845308803680399,
+    "r2": 0.8085821395096264,
+    "mape": 12.447763399192635
+  },
+  "metrics_std": {
+    "rmse": 0.027547320821879794,
+    "mae": 0.020833443032891422,
+    "r2": 0.048158389601312135,
+    "mape": 1.7739597113999714
+  },
+  "saved_at": "2026-01-05T20:19:26.125388Z",
+  "random_state": 42,
+  "validation_metrics": {
+    "rmse": 0.40393302414684346,
+    "mae": 0.3011214836013943,
+    "r2": 0.4091783802341895,
+    "mape": 40.22965214298744
+  },
+  "feature_selection": {
+    "method": "select_k_best_f_regression",
+    "requested_k": 20,
+    "selected_k": 13,
+    "total_features": 13,
+    "selected_features": [
+      "RH",
+      "Temperature",
+      "Mod Temp",
+      "Particles",
+      "Nozzle temp",
+      "(Tnoz-Tmod)",
+      "collection_medium",
+      "log_particles",
+      "particles_temp_interaction",
+      "avl_particles",
+      "avl_temp_diff",
+      "Particles_squared",
+      "Mod_x_Temp_x_Nozzle_x_temp"
+    ],
+    "required_features": [
+      "RH",
+      "Temperature",
+      "Mod Temp"
+    ],
+    "required_features_added": [],
+    "rankings": [
+      {
+        "feature": "log_particles",
+        "score": 106.75277296796379,
+        "pvalue": 1.636062487928902e-21,
+        "selected": true
+      },
+      {
+        "feature": "collection_medium",
+        "score": 52.69522552664834,
+        "pvalue": 3.5904032586611368e-12,
+        "selected": true
+      },
+      {
+        "feature": "(Tnoz-Tmod)",
+        "score": 51.90742702248276,
+        "pvalue": 5.043484667603292e-12,
+        "selected": true
+      },
+      {
+        "feature": "Particles",
+        "score": 50.72705053091123,
+        "pvalue": 8.405744874098725e-12,
+        "selected": true
+      },
+      {
+        "feature": "avl_particles",
+        "score": 43.859111042750705,
+        "pvalue": 1.7093247528207493e-10,
+        "selected": true
+      },
+      {
+        "feature": "particles_temp_interaction",
+        "score": 22.034701694058793,
+        "pvalue": 4.134735789193459e-06,
+        "selected": true
+      },
+      {
+        "feature": "RH",
+        "score": 17.292371108187805,
+        "pvalue": 4.2247791699536574e-05,
+        "selected": true
+      },
+      {
+        "feature": "Particles_squared",
+        "score": 15.05094865016689,
+        "pvalue": 0.00012955721054492945,
+        "selected": true
+      },
+      {
+        "feature": "avl_temp_diff",
+        "score": 13.762015313008899,
+        "pvalue": 0.00024864007606335874,
+        "selected": true
+      },
+      {
+        "feature": "Nozzle temp",
+        "score": 10.980855642422005,
+        "pvalue": 0.001037423505298056,
+        "selected": true
+      },
+      {
+        "feature": "Mod Temp",
+        "score": 8.75037986461116,
+        "pvalue": 0.003350303179621655,
+        "selected": true
+      },
+      {
+        "feature": "Temperature",
+        "score": 1.6779633618010412,
+        "pvalue": 0.19622548546257965,
+        "selected": true
+      },
+      {
+        "feature": "Mod_x_Temp_x_Nozzle_x_temp",
+        "score": 0.08376628846820322,
+        "pvalue": 0.7724636882980903,
+        "selected": true
+      }
+    ]
+  },
+  "experiment_metadata": {
+    "optuna": {
+      "best_value": 0.2844509275588687,
+      "best_trial": 70,
+      "n_trials": 100,
+      "params": {
+        "regressor__C": 9.624405835693121,
+        "regressor__gamma": 0.012242274655351753,
+        "regressor__epsilon": 0.024814275889086763
+      }
+    }
+  }
+}
